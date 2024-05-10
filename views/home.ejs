@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+
+  <title>SHORT URLS</title>
+</head>
+<body class="body">
+  <div class="container relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
+    <h1 class=" text-align-center text-lg leading-8 text-gray-300">Short your URL!</h1>
+    <form action="/shortUrls" method="POST" class=" flex-start  relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
+      <label for="fullUrl" class="mx-auto max-w-7xl px-6 lg:px-8"></label>
+      
+      <div class="form-control">
+        <input
+        required placeholder="Write or paste your large URL" type="url" name="fullUrl" id="address"
+          type="text"
+          required=""
+          class="input input-alt"
+        />
+        <span class="input-border input-border-alt"></span>
+      </div>
+      
+      <button class="justify-center items-center rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500" type="submit">Shrink</button>
+    </form>
+    
+    <table class="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
+      <thead class="mt-4 text-lg leading-8 text-gray-300">
+        <tr>
+          <th>URL</th>
+          <th>Short URL Generated  </th>
+          <th>Clicks</th>
+        </tr>
+      </thead>
+      <tbody class="mt-4 text-lg leading-8 text-gray-300">
+        <% urls.forEach(shortUrl => { %>
+          <tr>
+            <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
+            <td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+            <td><%= shortUrl.clicks %></td>
+          </tr>
+        <% }) %>
+      </tbody >
+    </table>
+  </div>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+  
+</body>
+</html>
