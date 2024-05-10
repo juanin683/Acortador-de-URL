@@ -16,15 +16,15 @@ const run = async() =>{
 }
 
 
-app.use(express.static('src'))
-app.set('view engine', 'ejs')
+app.use(express.static('src'));
+app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }))
 
 
 app.get('/', async (req, res) => {
   const shortUrls = await shortUrl.find();
 
-  res.render('home', { urls: shortUrls })
+  res.render('home', { urls: shortUrls });
 })
 
 app.post('/shortUrls', async (req, res) => {
